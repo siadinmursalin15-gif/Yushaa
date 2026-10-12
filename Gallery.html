@@ -1,71 +1,140 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gallery | Nasafa Khandoker Yusha</title>
 
-    <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background-color: #000;
+            padding: 25px 20px;
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        .header {
+            background-color: black;
             color: white;
+            text-align: center;
+            padding: 25px 15px 35px;
         }
 
-        .gallery-container {
-            padding: 35px 15px;
+        .header img {
+            width: 290px;
+            height: 290px;
+            object-fit: cover;
         }
 
+        .header h1 {
+            font-size: 36px;
+            font-weight: normal;
+            margin: 15px 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+        }
+
+        .navbar a:hover {
+            color: #ccc;
+        }
+
+        /* Gallery */
         .gallery-title {
             text-align: center;
-            margin-bottom: 35px;
-            font-size: 36px;
-            font-weight: bold;
-            color: white;
+            font-size: 56px;
+            font-weight: normal;
+            color: #333;
+            margin: 0 0 15px;
         }
 
-        .gallery-grid {
+        .gallery {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
+            gap: 28px;
+            max-width: 1650px;
+            margin: auto;
+            padding: 0 20px 30px;
         }
 
-        .gallery-grid img {
+        .gallery img {
             width: 100%;
-            height: 270px;
+            height: 280px;
             object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
+            padding: 12px;
+            background: white;
+            border-radius: 12px;
+            transition: transform 0.3s;
         }
 
-        .gallery-grid img:hover {
+        .gallery img:hover {
             transform: scale(1.03);
         }
 
+        /* Tablet */
         @media (max-width: 992px) {
-            .gallery-grid {
+            .gallery {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
             }
         }
 
+        /* Mobile */
         @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 10px;
+            body {
+                padding: 10px;
             }
 
-            .gallery-grid img {
-                height: 180px;
+            .header img {
+                width: 200px;
+                height: 220px;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .navbar {
+                gap: 15px;
+            }
+
+            .navbar a {
+                font-size: 16px;
             }
 
             .gallery-title {
-                font-size: 28px;
+                font-size: 35px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                padding: 0 0 20px;
+            }
+
+            .gallery img {
+                height: 180px;
+                padding: 7px;
             }
         }
     </style>
@@ -73,133 +142,103 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+    <!-- Header -->
+    <header class="header">
 
-            <a class="navbar-brand" href="index.html">
-                Nasafa Khandoker Yusha
-            </a>
+        <img src="1.jpeg" alt="Nasafa Khandoker Yusha">
 
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+        <h1>Nasafa Khandoker Yusha</h1>
 
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="Aboutme.html">About Me</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="Aboutme.html">About Me</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="Gallery.html">Gallery</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contact.html">Contact</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+    </header>
 
     <!-- Gallery Section -->
-    <main class="container-fluid gallery-container">
+    <main>
+        <h2 class="gallery-title">My Photo's</h2>
 
-        <h1 class="gallery-title">My Gallery</h1>
+        <div class="gallery">
 
-        <div class="gallery-grid">
-
-            <img src="1.jpeg" alt="Photo 1" loading="lazy">
-            <img src="2.jpeg" alt="Photo 2" loading="lazy">
-            <img src="3.jpeg" alt="Photo 3" loading="lazy">
-            <img src="4.jpeg" alt="Photo 4" loading="lazy">
-            <img src="5.jpeg" alt="Photo 5" loading="lazy">
-            <img src="6.jpeg" alt="Photo 6" loading="lazy">
-            <img src="7.jpeg" alt="Photo 7" loading="lazy">
-            <img src="8.jpeg" alt="Photo 8" loading="lazy">
-            <img src="9.jpeg" alt="Photo 9" loading="lazy">
-            <img src="10.jpeg" alt="Photo 10" loading="lazy">
-            <img src="11.jpeg" alt="Photo 11" loading="lazy">
-            <img src="12.jpeg" alt="Photo 12" loading="lazy">
-            <img src="13.jpeg" alt="Photo 13" loading="lazy">
-            <img src="14.jpeg" alt="Photo 14" loading="lazy">
-            <img src="15.jpeg" alt="Photo 15" loading="lazy">
-            <img src="16.jpeg" alt="Photo 16" loading="lazy">
-            <img src="17.jpeg" alt="Photo 17" loading="lazy">
-            <img src="18.jpeg" alt="Photo 18" loading="lazy">
-            <img src="19.jpeg" alt="Photo 19" loading="lazy">
-            <img src="20.jpeg" alt="Photo 20" loading="lazy">
-            <img src="21.jpeg" alt="Photo 21" loading="lazy">
-            <img src="22.jpeg" alt="Photo 22" loading="lazy">
-            <img src="23.jpeg" alt="Photo 23" loading="lazy">
-            <img src="24.jpeg" alt="Photo 24" loading="lazy">
-            <img src="25.jpeg" alt="Photo 25" loading="lazy">
-            <img src="26.jpeg" alt="Photo 26" loading="lazy">
-            <img src="27.jpeg" alt="Photo 27" loading="lazy">
-            <img src="28.jpeg" alt="Photo 28" loading="lazy">
-            <img src="29.jpeg" alt="Photo 29" loading="lazy">
-            <img src="30.jpeg" alt="Photo 30" loading="lazy">
-            <img src="31.jpeg" alt="Photo 31" loading="lazy">
-            <img src="32.jpeg" alt="Photo 32" loading="lazy">
-            <img src="33.jpeg" alt="Photo 33" loading="lazy">
-            <img src="34.jpeg" alt="Photo 34" loading="lazy">
-            <img src="35.jpeg" alt="Photo 35" loading="lazy">
-            <img src="36.jpeg" alt="Photo 36" loading="lazy">
-            <img src="37.jpeg" alt="Photo 37" loading="lazy">
-            <img src="38.jpeg" alt="Photo 38" loading="lazy">
-            <img src="39.jpeg" alt="Photo 39" loading="lazy">
-            <img src="40.jpeg" alt="Photo 40" loading="lazy">
-            <img src="41.jpeg" alt="Photo 41" loading="lazy">
-            <img src="42.jpeg" alt="Photo 42" loading="lazy">
-            <img src="43.jpeg" alt="Photo 43" loading="lazy">
-            <img src="44.jpeg" alt="Photo 44" loading="lazy">
-            <img src="45.jpeg" alt="Photo 45" loading="lazy">
-            <img src="46.jpeg" alt="Photo 46" loading="lazy">
-            <img src="48.jpeg" alt="Photo 48" loading="lazy">
-            <img src="49.jpeg" alt="Photo 49" loading="lazy">
-            <img src="50.jpeg" alt="Photo 50" loading="lazy">
-            <img src="51.jpeg" alt="Photo 51" loading="lazy">
-            <img src="52.jpeg" alt="Photo 52" loading="lazy">
-            <img src="53.jpeg" alt="Photo 53" loading="lazy">
-            <img src="54.jpeg" alt="Photo 54" loading="lazy">
-            <img src="55.jpeg" alt="Photo 55" loading="lazy">
-            <img src="56.jpeg" alt="Photo 56" loading="lazy">
-            <img src="57.jpeg" alt="Photo 57" loading="lazy">
-            <img src="58.jpeg" alt="Photo 58" loading="lazy">
-            <img src="59.jpeg" alt="Photo 59" loading="lazy">
-            <img src="60.jpeg" alt="Photo 60" loading="lazy">
-            <img src="61.jpeg" alt="Photo 61" loading="lazy">
-            <img src="62.jpeg" alt="Photo 62" loading="lazy">
-            <img src="63.jpeg" alt="Photo 63" loading="lazy">
-            <img src="64.jpeg" alt="Photo 64" loading="lazy">
-            <img src="65.jpeg" alt="Photo 65" loading="lazy">
-            <img src="66.jpeg" alt="Photo 66" loading="lazy">
-            <img src="67.jpeg" alt="Photo 67" loading="lazy">
-            <img src="68.jpeg" alt="Photo 68" loading="lazy">
-            <img src="69%20.jpg" alt="Photo 69" loading="lazy">
-            <img src="70.jpg" alt="Photo 70" loading="lazy">
-            <img src="71.jpg" alt="Photo 71" loading="lazy">
-            <img src="72.jpg" alt="Photo 72" loading="lazy">
-            <img src="73.jpg" alt="Photo 73" loading="lazy">
+            <img src="1.jpeg" alt="Photo 1">
+            <img src="2.jpeg" alt="Photo 2">
+            <img src="3.jpeg" alt="Photo 3">
+            <img src="4.jpeg" alt="Photo 4">
+            <img src="5.jpeg" alt="Photo 5">
+            <img src="6.jpeg" alt="Photo 6">
+            <img src="7.jpeg" alt="Photo 7">
+            <img src="8.jpeg" alt="Photo 8">
+            <img src="9.jpeg" alt="Photo 9">
+            <img src="10.jpeg" alt="Photo 10">
+            <img src="11.jpeg" alt="Photo 11">
+            <img src="12.jpeg" alt="Photo 12">
+            <img src="13.jpeg" alt="Photo 13">
+            <img src="14.jpeg" alt="Photo 14">
+            <img src="15.jpeg" alt="Photo 15">
+            <img src="16.jpeg" alt="Photo 16">
+            <img src="17.jpeg" alt="Photo 17">
+            <img src="18.jpeg" alt="Photo 18">
+            <img src="19.jpeg" alt="Photo 19">
+            <img src="20.jpeg" alt="Photo 20">
+            <img src="21.jpeg" alt="Photo 21">
+            <img src="22.jpeg" alt="Photo 22">
+            <img src="23.jpeg" alt="Photo 23">
+            <img src="24.jpeg" alt="Photo 24">
+            <img src="25.jpeg" alt="Photo 25">
+            <img src="26.jpeg" alt="Photo 26">
+            <img src="27.jpeg" alt="Photo 27">
+            <img src="28.jpeg" alt="Photo 28">
+            <img src="29.jpeg" alt="Photo 29">
+            <img src="30.jpeg" alt="Photo 30">
+            <img src="31.jpeg" alt="Photo 31">
+            <img src="32.jpeg" alt="Photo 32">
+            <img src="33.jpeg" alt="Photo 33">
+            <img src="34.jpeg" alt="Photo 34">
+            <img src="35.jpeg" alt="Photo 35">
+            <img src="36.jpeg" alt="Photo 36">
+            <img src="37.jpeg" alt="Photo 37">
+            <img src="38.jpeg" alt="Photo 38">
+            <img src="39.jpeg" alt="Photo 39">
+            <img src="40.jpeg" alt="Photo 40">
+            <img src="41.jpeg" alt="Photo 41">
+            <img src="42.jpeg" alt="Photo 42">
+            <img src="43.jpeg" alt="Photo 43">
+            <img src="44.jpeg" alt="Photo 44">
+            <img src="45.jpeg" alt="Photo 45">
+            <img src="46.jpeg" alt="Photo 46">
+            <img src="48.jpeg" alt="Photo 48">
+            <img src="49.jpeg" alt="Photo 49">
+            <img src="50.jpeg" alt="Photo 50">
+            <img src="51.jpeg" alt="Photo 51">
+            <img src="52.jpeg" alt="Photo 52">
+            <img src="53.jpeg" alt="Photo 53">
+            <img src="54.jpeg" alt="Photo 54">
+            <img src="55.jpeg" alt="Photo 55">
+            <img src="56.jpeg" alt="Photo 56">
+            <img src="57.jpeg" alt="Photo 57">
+            <img src="58.jpeg" alt="Photo 58">
+            <img src="59.jpeg" alt="Photo 59">
+            <img src="60.jpeg" alt="Photo 60">
+            <img src="61.jpeg" alt="Photo 61">
+            <img src="62.jpeg" alt="Photo 62">
+            <img src="63.jpeg" alt="Photo 63">
+            <img src="64.jpeg" alt="Photo 64">
+            <img src="65.jpeg" alt="Photo 65">
+            <img src="66.jpeg" alt="Photo 66">
+            <img src="67.jpeg" alt="Photo 67">
+            <img src="68.jpeg" alt="Photo 68">
+            <img src="69 .jpg" alt="Photo 69">
+            <img src="70.jpg" alt="Photo 70">
+            <img src="71.jpg" alt="Photo 71">
+            <img src="72.jpg" alt="Photo 72">
+            <img src="73.jpg" alt="Photo 73">
 
         </div>
     </main>
-
-    <script src="bootstrap.bundle.js"></script>
 
 </body>
 </html>
